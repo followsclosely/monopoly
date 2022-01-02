@@ -19,15 +19,14 @@ public abstract class RealEstate extends Street {
     public RealEstate(String name, int price) {
         super(name);
         this.price = price;
-        this.mortgage = price/2;
+        this.mortgage = price / 2;
     }
-
 
     public int getPrice() {
         return price;
     }
 
-    public Purchase getCurrentOwner() {
+    public Purchase getOwner() {
         return currentOwner;
     }
 
@@ -41,6 +40,9 @@ public abstract class RealEstate extends Street {
         return mortgage;
     }
 
+    public boolean isOwned(){
+        return currentOwner != null;
+    }
     public boolean isMortgaged() {
         return mortgaged;
     }

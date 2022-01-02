@@ -1,12 +1,13 @@
 package io.github.followsclosley.monopoly;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Board {
-    private List<Street> streets;
+    private final Street[] streets;
 
-    public Board(Street... street){
-        this.streets = new ArrayList<>(streets);
+    public Board(Street... streets) {
+        this.streets = streets;
+    }
+
+    public Street getStreet(int position){
+        return streets[position];
     }
 }
