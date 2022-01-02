@@ -1,4 +1,5 @@
 rootProject.name = 'monopoly'
 
 include 'core'
+include 'swing'
 
