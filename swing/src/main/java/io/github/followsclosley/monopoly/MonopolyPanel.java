@@ -1,20 +1,33 @@
 package io.github.followsclosley.monopoly;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class MonopolyPanel extends JPanel {
 
-        protected final Dimension DEFAULT_MINIMUM_SIZE = new Dimension(250, 500);
+        protected final Dimension DEFAULT_MINIMUM_SIZE = new Dimension(1000, 700);
+
+    public MonopolyPanel() throws IOException {
+    }
 
 
-        @Override
+    @Override
         public Dimension getPreferredSize() {
             return DEFAULT_MINIMUM_SIZE;
         }
 
-        @Override
-        public void paint(Graphics g) {
+    final Image image = ImageIO.read(new File("swing/src/main/resources/Background.jpg")).getScaledInstance(DEFAULT_MINIMUM_SIZE.height, DEFAULT_MINIMUM_SIZE.height, Image.SCALE_SMOOTH);
+
+    @Override
+    public void paint(Graphics g) {//1500 1500
+        g.drawImage(image, 0, 0, null);
+    }
+
+        public void xpaint(Graphics g) {
 
 //            Background
             g.setColor(Color.WHITE);
