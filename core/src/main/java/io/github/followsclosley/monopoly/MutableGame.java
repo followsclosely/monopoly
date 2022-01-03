@@ -1,7 +1,5 @@
 package io.github.followsclosley.monopoly;
 
-import io.github.followsclosley.monopoly.street.RealEstate;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -25,9 +25,10 @@ public class Player {
         return savings;
     }
 
-    public void addRealEstate(RealEstate re){
+    public void addRealEstate(RealEstate re) {
         streets.add(re);
     }
+
     public List<RealEstate> getRealEstate() {
         return streets;
     }

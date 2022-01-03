@@ -5,5 +5,6 @@ import io.github.followsclosley.monopoly.street.RealEstate;
 
 public interface GameManager {
     MutableGame purchaseRealEstate(RealEstate re);
+
     MutableGame purchaseHouse(Property re);
 }
