@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class MonopolyPanel extends JPanel {
 
-        protected final Dimension DEFAULT_MINIMUM_SIZE = new Dimension(1000, 700);
+        protected final Dimension DEFAULT_MINIMUM_SIZE = new Dimension(700, 700);
 
     public MonopolyPanel() throws IOException {
     }
@@ -19,12 +19,16 @@ public class MonopolyPanel extends JPanel {
         public Dimension getPreferredSize() {
             return DEFAULT_MINIMUM_SIZE;
         }
-
+//center
     final Image image = ImageIO.read(new File("swing/src/main/resources/Background.jpg")).getScaledInstance(DEFAULT_MINIMUM_SIZE.height, DEFAULT_MINIMUM_SIZE.height, Image.SCALE_SMOOTH);
 
     @Override
     public void paint(Graphics g) {//1500 1500
         g.drawImage(image, 0, 0, null);
+
+//        piece
+        g.fillRoundRect(20,20,20,20,20,20);
+        g.fillRoundRect(100,20,20,20,20,20);
     }
 
         public void xpaint(Graphics g) {
