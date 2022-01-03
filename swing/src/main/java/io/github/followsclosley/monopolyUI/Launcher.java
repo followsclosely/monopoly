@@ -12,13 +12,15 @@ public class Launcher {
         controlPanel.setBackground(Color.lightGray);
 
         JFrame frame = new JFrame("Monopoly");
-        JToggleButton rollButton = new JToggleButton("Roll Dice");
+        JButton rollButton = new JButton("Roll Dice");
         controlPanel.add(rollButton, BorderLayout.CENTER);
-        JToggleButton buyButton = new JToggleButton("Buy");
+        JButton buyButton = new JButton("Buy");
         controlPanel.add(buyButton, BorderLayout.CENTER);
-        JToggleButton sellButton = new JToggleButton("Sell");
+
+        JButton sellButton = new JButton("Sell");
         controlPanel.add(sellButton, BorderLayout.CENTER);
-        JToggleButton endTurn = new JToggleButton("End turn");
+
+        JButton endTurn = new JButton("End turn");
         controlPanel.add(endTurn);
 
 
