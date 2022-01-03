@@ -86,7 +86,8 @@ public class Engine implements GameManager {
 
             player.getArtificialIntelligence().afterRoll(game, street, dice);
 
-            if (!dice.isDoubles()) {
+            //if (!dice.isDoubles())
+            {
                 i++;
             }
 

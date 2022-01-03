@@ -6,6 +6,8 @@ import io.github.followsclosley.monopoly.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class Launcher {
@@ -22,9 +24,6 @@ public class Launcher {
 
         JFrame frame = new JFrame("Monopoly");
         JButton rollButton = new JButton("Roll Dice");
-        rollButton.addActionListener(e -> {
-
-        });
         controlPanel.add(rollButton, BorderLayout.CENTER);
         JButton buyButton = new JButton("Buy");
         controlPanel.add(buyButton, BorderLayout.CENTER);
@@ -41,7 +40,7 @@ public class Launcher {
         frame.getContentPane().add(controlPanel, BorderLayout.EAST);
 
         frame.pack();
-        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
 
@@ -53,6 +52,16 @@ public class Launcher {
               SwingUtilities.invokeLater(monopolyPanel::repaint);
           });
 
-        new Thread(engine::startGame).start();
+        monopolyPanel.addMouseListener(new MouseAdapter() {// provides empty implementation of all
+            // MouseListener`s methods, allowing us to
+            // override only those which interests us
+            @Override //I override only one method for presentation
+            public void mousePressed(MouseEvent e) {
+                System.out.println(e.getX() + "," + e.getY());
+            }
+        });
+
+
+        //new Thread(engine::startGame).start();
     }
 }
