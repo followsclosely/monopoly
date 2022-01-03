@@ -1,4 +1,4 @@
-package io.github.followsclosley.monopolyUI;
+package io.github.followsclosley.monopoly.ui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +13,9 @@ public class Launcher {
 
         JFrame frame = new JFrame("Monopoly");
         JButton rollButton = new JButton("Roll Dice");
+        rollButton.addActionListener(e -> {
+
+        });
         controlPanel.add(rollButton, BorderLayout.CENTER);
         JButton buyButton = new JButton("Buy");
         controlPanel.add(buyButton, BorderLayout.CENTER);

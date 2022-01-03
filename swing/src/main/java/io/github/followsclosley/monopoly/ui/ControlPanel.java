@@ -1,4 +1,4 @@
-package io.github.followsclosley.monopolyUI;
+package io.github.followsclosley.monopoly.ui;
 
 import javax.swing.*;
 import java.awt.*;
