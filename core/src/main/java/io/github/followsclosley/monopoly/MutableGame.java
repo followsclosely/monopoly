@@ -30,23 +30,5 @@ public class MutableGame {
         return board;
     }
 
-    boolean purchase(RealEstate re){
-        if( re.isOwned() ){
-            return false;
-        }
-
-        re.setCurrentOwner(new Purchase(currentPlayer, re.getPrice()));
-        return true;
-    }
-
-    boolean purchaseHouse(RealEstate re){
-        if( re.isOwned() ){
-            return false;
-        }
-
-        re.setCurrentOwner(new Purchase(currentPlayer, re.getPrice()));
-        currentPlayer.addRealEstate(re);
-        return true;
-    }
 
 }

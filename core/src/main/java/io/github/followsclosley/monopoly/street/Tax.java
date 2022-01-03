@@ -9,4 +9,8 @@ public class Tax extends Street {
         super(name);
         this.fee = fee;
     }
+
+    public int getFee() {
+        return fee;
+    }
 }
