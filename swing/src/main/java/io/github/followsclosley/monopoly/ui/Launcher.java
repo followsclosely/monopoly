@@ -1,5 +1,7 @@
 package io.github.followsclosley.monopoly.ui;
 
+import io.github.followsclosley.monopoly.Engine;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -7,6 +9,8 @@ import java.io.IOException;
 public class Launcher {
 
     public static void main(String[] args) throws IOException {
+
+        Engine engine = new Engine();
 
         ControlPanel controlPanel = new ControlPanel();
         controlPanel.setBackground(Color.lightGray);
