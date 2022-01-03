@@ -5,10 +5,12 @@ import io.github.followsclosley.monopoly.street.RealEstate;
 public class DummyAI implements ArtificialIntelligence {
 
     private Player player;
+    private GameManager gameManager;
 
     @Override
-    public void init(Player player) {
+    public void init(GameManager gameManager, Player player) {
         System.out.println(player.getName() + ": init");
+        this.gameManager = gameManager;
         this.player = player;
     }
 
@@ -23,7 +25,7 @@ public class DummyAI implements ArtificialIntelligence {
 
         if( landed instanceof RealEstate re && !re.isOwned() ){
             System.out.println(player.getName() + ": "+ landed.getName() +" is not owned, I will buy it!");
-            game.purchase(re);
+            game = gameManager.purchaseRealEstate(re);
         }
     }
 }

@@ -26,4 +26,20 @@ public class Purchase {
         this.purchaseTime = Instant.now();
         this.type = type;
     }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public Player getOwner() {
+        return owner;
+    }
+
+    public Instant getPurchaseTime() {
+        return purchaseTime;
+    }
+
+    public TransactionType getType() {
+        return type;
+    }
 }

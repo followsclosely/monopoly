@@ -5,7 +5,7 @@ package io.github.followsclosley.monopoly;
  */
 public interface ArtificialIntelligence {
 
-    void init(Player player);
+    void init(GameManager gameManager, Player player);
 
     void beforeRoll(MutableGame game);
 
