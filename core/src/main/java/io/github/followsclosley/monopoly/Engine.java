@@ -1,5 +1,8 @@
 package io.github.followsclosley.monopoly;
 
+import io.github.followsclosley.monopoly.event.GameChangedEvent;
+import io.github.followsclosley.monopoly.event.GameEventListener;
+import io.github.followsclosley.monopoly.event.MoveEvent;
 import io.github.followsclosley.monopoly.street.Property;
 import io.github.followsclosley.monopoly.street.RealEstate;
 import io.github.followsclosley.monopoly.street.Tax;
@@ -9,11 +12,13 @@ import java.util.List;
 
 public class Engine implements GameManager {
 
-    private final Dice dice = new Dice(6);
+    private final Dice dice = new Dice(2);
 
     private List<Player> players = new ArrayList<>();
 
     private MutableGame game;
+
+    private List<GameEventListener> listeners = new ArrayList<>();
 
     public static void main(String[] args) {
         Engine engine = new Engine();
@@ -22,12 +27,33 @@ public class Engine implements GameManager {
         engine.startGame();
     }
 
+    @Override
+    public MutableGame getGame() {
+        if( game == null ){
+            this.game = new MutableGame(new BoardBuilder().build(), players);
+        }
+        return this.game;
+    }
+
+    public Engine addListener(GameEventListener l){
+        listeners.add(l);
+        return this;
+    }
+    private void fireEvent(GameChangedEvent e){
+        for(GameEventListener l : listeners){
+            l.onEvent(e);
+        }
+    }
+
     public Engine addPlayer(Player player) {
         this.players.add(player);
         return this;
     }
 
     public void startGame() {
+
+        getGame();
+
         for (Player player : players) {
             player.getArtificialIntelligence().init(this, player);
         }
@@ -56,11 +82,15 @@ public class Engine implements GameManager {
                 t.getFee();
             }
 
+            fireEvent(new MoveEvent(player));
+
             player.getArtificialIntelligence().afterRoll(game, street, dice);
 
             if (!dice.isDoubles()) {
                 i++;
             }
+
+            try {Thread.sleep(3000);}catch (InterruptedException ignore) {}
 
             if (i >= 10) return;
         } while (true);

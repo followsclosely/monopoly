@@ -28,5 +28,7 @@ public class MutableGame {
         return board;
     }
 
-
+    public List<Player> getPlayers() {
+        return players;
+    }
 }
