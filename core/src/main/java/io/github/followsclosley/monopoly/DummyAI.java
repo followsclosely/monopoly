@@ -21,10 +21,10 @@ public class DummyAI implements ArtificialIntelligence {
 
     @Override
     public void afterRoll(MutableGame game, Street landed, Dice dice) {
-        System.out.println(player.getName() + ": afterRoll("+landed.getName()+", "+dice+")");
+        System.out.println(player.getName() + ": afterRoll(" + landed.getName() + ", " + dice + ")");
 
-        if( landed instanceof RealEstate re && !re.isOwned() ){
-            System.out.println(player.getName() + ": "+ landed.getName() +" is not owned, I will buy it!");
+        if (landed instanceof RealEstate re && !re.isOwned()) {
+            System.out.println(player.getName() + ": " + landed.getName() + " is not owned, I will buy it!");
             game = gameManager.purchaseRealEstate(re);
         }
     }

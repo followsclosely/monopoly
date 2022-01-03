@@ -7,7 +7,7 @@ public class Board {
         this.streets = streets;
     }
 
-    public Street getStreet(int position){
+    public Street getStreet(int position) {
         return streets[position];
     }
 }

@@ -9,13 +9,6 @@ public class Purchase {
     private final Instant purchaseTime;
     private final TransactionType type;
 
-    public static enum TransactionType {
-        Purchase,
-        Auction,
-        Trade,
-        Forfeit
-    }
-
     public Purchase(Player owner, int price) {
         this(owner, price, TransactionType.Purchase);
     }
@@ -41,5 +34,12 @@ public class Purchase {
 
     public TransactionType getType() {
         return type;
+    }
+
+    public static enum TransactionType {
+        Purchase,
+        Auction,
+        Trade,
+        Forfeit
     }
 }
