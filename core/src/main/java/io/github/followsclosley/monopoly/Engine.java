@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Engine implements GameManager {
 
-    private final Dice dice = new Dice(2);
+    private final Dice dice = new Dice(6);
 
     private List<Player> players = new ArrayList<>();
 
@@ -91,9 +91,9 @@ public class Engine implements GameManager {
                 i++;
             }
 
-            try {Thread.sleep(3000);}catch (InterruptedException ignore) {}
+            try {Thread.sleep(1000);}catch (InterruptedException ignore) {}
 
-            if (i >= 10) return;
+            if (i >= 100) return;
         } while (true);
     }
 

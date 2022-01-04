@@ -62,6 +62,6 @@ public class Launcher {
         });
 
 
-        //new Thread(engine::startGame).start();
+        new Thread(engine::startGame).start();
     }
 }

@@ -40,37 +40,33 @@ public class MonopolyPanel extends JPanel {
         g.drawImage(image, 0, 0, null);
 
 
-        for (int i = 0; i < 40; i++) {
-            if( i<10) {
-                g.setColor(Color.RED);
-                g.fillRect(48 + SPACER * (10 - i), 656, 20, 20);
-                g.setColor(Color.BLACK);
-                g.drawString(String.valueOf(i), 48 + SPACER * (10-i), 666);
-            } else if( i>= 10 && i<20) {
-                g.setColor(Color.BLUE);
-                g.fillRect(28,  635 + SPACER * (10-i), 20, 20);
-                g.setColor(Color.WHITE);
-                g.drawString(String.valueOf(i), 28,  645 + SPACER * (10-i));
-            } else if( i>= 20 && i<30) {
-                g.setColor(Color.RED);
-                g.fillRect(48 + SPACER * (i-20), 40, 20, 20);
-                g.setColor(Color.BLACK);
-                g.drawString(String.valueOf(i), 48 + SPACER * (i-20), 50);
-            }else if (i>=30) {
-                g.setColor(Color.BLUE);
-                g.fillRect(660,  48 + SPACER * (i-30), 20, 20);
-                g.setColor(Color.WHITE);
-                g.drawString(String.valueOf(i), 660,  63 + SPACER * (i-30));
-            }
-        }
+//        for (int i = 0; i < 40; i++) {
+//            if( i<10) {
+//                g.setColor(Color.RED);
+//                g.fillRect(48 + SPACER * (10 - i), 656, 20, 20);
+//                g.setColor(Color.BLACK);
+//                g.drawString(String.valueOf(i), 48 + SPACER * (10-i), 666);
+//            } else if( i>= 10 && i<20) {
+//                g.setColor(Color.BLUE);
+//                g.fillRect(28,  635 + SPACER * (10-i), 20, 20);
+//                g.setColor(Color.WHITE);
+//                g.drawString(String.valueOf(i), 28,  645 + SPACER * (10-i));
+//            } else if( i>= 20 && i<30) {
+//                g.setColor(Color.RED);
+//                g.fillRect(48 + SPACER * (i-20), 40, 20, 20);
+//                g.setColor(Color.BLACK);
+//                g.drawString(String.valueOf(i), 48 + SPACER * (i-20), 50);
+//            }else if (i>=30) {
+//                g.setColor(Color.BLUE);
+//                g.fillRect(660,  48 + SPACER * (i-30), 20, 20);
+//                g.setColor(Color.WHITE);
+//                g.drawString(String.valueOf(i), 660,  63 + SPACER * (i-30));
+//            }
+//        }
 
         if( game != null){
             for( Player p : game.getPlayers()){
-                int position = p.getPosition();
-
-                //g.fillRoundRect(20*position,20,20,20,20,20);
-                g.drawString(p.getName(),SPACER*position + 10,48);
-
+                drawPiece(g, p);
             }
         }
 //        piece
@@ -78,6 +74,30 @@ public class MonopolyPanel extends JPanel {
         //g.fillRoundRect(100,20,20,20,20,20);
     }
 
+    private void drawPiece(Graphics g, Player p){
+        int i = p.getPosition();
+        if( i<10) {
+            g.setColor(Color.RED);
+            g.fillRect(48 + SPACER * (10 - i), 656, 20, 20);
+            g.setColor(Color.BLACK);
+            g.drawString(String.valueOf(i), 48 + SPACER * (10-i), 666);
+        } else if( i>= 10 && i<20) {
+            g.setColor(Color.BLUE);
+            g.fillRect(28,  635 + SPACER * (10-i), 20, 20);
+            g.setColor(Color.WHITE);
+            g.drawString(String.valueOf(i), 28,  645 + SPACER * (10-i));
+        } else if( i>= 20 && i<30) {
+            g.setColor(Color.RED);
+            g.fillRect(48 + SPACER * (i-20), 40, 20, 20);
+            g.setColor(Color.BLACK);
+            g.drawString(String.valueOf(i), 48 + SPACER * (i-20), 50);
+        }else if (i>=30) {
+            g.setColor(Color.BLUE);
+            g.fillRect(660,  48 + SPACER * (i-30), 20, 20);
+            g.setColor(Color.WHITE);
+            g.drawString(String.valueOf(i), 660,  63 + SPACER * (i-30));
+        }
+    }
         public void xpaint(Graphics g) {
 
 //            Background

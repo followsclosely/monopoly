@@ -20,7 +20,7 @@ public class Adapter implements ArtificialIntelligence {
     public void beforeRoll(MutableGame game) {
         System.out.println("Jaron: YOUR ROLL DUMMY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-        JOptionPane.showMessageDialog(null, "Roll Dice?");
+        //JOptionPane.showMessageDialog(null, "Roll Dice?");
 
     }
 
