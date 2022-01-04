@@ -7,6 +7,7 @@ public class Chance extends Street {
         super(name);
     }
 
+//    We could do: (NAME, PayAmount, ReceiveAmount,ToAllPlayers)
     /*CHANCE CARDS
     Advance to Boardwalk
     Advance to Go (Collect $200)
