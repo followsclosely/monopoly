@@ -1,13 +1,30 @@
 package io.github.followsclosley.monopoly.street;
 
+import io.github.followsclosley.monopoly.Card;
+import io.github.followsclosley.monopoly.Player;
 import io.github.followsclosley.monopoly.Street;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class Chance extends Street {
-    public Chance(String name) {
+    private List<Card> cards;
+    public Chance(String name, List<Card> cards) {
         super(name);
+        this.cards = cards;
     }
 
-//    We could do: (NAME, PayAmount, ReceiveAmount,ToAllPlayers)
+    Random random = new Random();
+
+    @Override
+    public void preformAction(Player player) {
+        Card card = cards.get(random.nextInt(cards.size()));
+        System.out.println("Got card: " + card.getDescription());
+        card.preformAction(player);
+    }
+
+    //    We could do: (NAME, PayAmount, ReceiveAmount,ToAllPlayers, MovesTo)
     /*CHANCE CARDS
     Advance to Boardwalk
     Advance to Go (Collect $200)

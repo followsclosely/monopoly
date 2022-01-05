@@ -82,6 +82,7 @@ public class Engine implements GameManager {
                 t.getFee();
             }
 
+            street.preformAction(player);
             fireEvent(new MoveEvent(player));
 
             player.getArtificialIntelligence().afterRoll(game, street, dice);

@@ -24,6 +24,10 @@ public class Player {
     public int getSavings() {
         return savings;
     }
+    public int incrementSavings(int amount){
+        savings += amount;
+        return savings;
+    }
 
     public void addRealEstate(RealEstate re) {
         streets.add(re);
