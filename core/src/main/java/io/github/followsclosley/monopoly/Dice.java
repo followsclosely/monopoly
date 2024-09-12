@@ -4,10 +4,9 @@ import java.util.Random;
 
 public class Dice {
     private final Random random = new Random();
-
+    private final int numberOfSides;
     private int total;
     private int dice1, dice2;
-    private final int numberOfSides;
 
     protected Dice(int numberOfSides) {
         this.numberOfSides = numberOfSides;
@@ -29,6 +28,6 @@ public class Dice {
 
     @Override
     public String toString() {
-        return "[" + dice1 + ","+ dice2 + "]";
+        return "[" + dice1 + "," + dice2 + "]";
     }
 }

@@ -1,7 +1,5 @@
 package io.github.followsclosley.monopoly;
 
-import io.github.followsclosley.monopoly.street.RealEstate;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,23 +28,7 @@ public class MutableGame {
         return board;
     }
 
-    boolean purchase(RealEstate re){
-        if( re.isOwned() ){
-            return false;
-        }
-
-        re.setCurrentOwner(new Purchase(currentPlayer, re.getPrice()));
-        return true;
+    public List<Player> getPlayers() {
+        return players;
     }
-
-    boolean purchaseHouse(RealEstate re){
-        if( re.isOwned() ){
-            return false;
-        }
-
-        re.setCurrentOwner(new Purchase(currentPlayer, re.getPrice()));
-        currentPlayer.addRealEstate(re);
-        return true;
-    }
-
 }

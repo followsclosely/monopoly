@@ -1,9 +1,45 @@
 package io.github.followsclosley.monopoly.street;
 
+import io.github.followsclosley.monopoly.Card;
+import io.github.followsclosley.monopoly.Player;
 import io.github.followsclosley.monopoly.Street;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class Chance extends Street {
-    public Chance(String name) {
+    private List<Card> cards;
+    public Chance(String name, List<Card> cards) {
         super(name);
+        this.cards = cards;
     }
+
+    Random random = new Random();
+
+    @Override
+    public void preformAction(Player player) {
+        Card card = cards.get(random.nextInt(cards.size()));
+        System.out.println("Got card: " + card.getDescription());
+        card.preformAction(player);
+    }
+
+    //    We could do: (NAME, PayAmount, ReceiveAmount,ToAllPlayers, MovesTo)
+    /*CHANCE CARDS
+    Advance to Boardwalk
+    Advance to Go (Collect $200)
+    Advance to Illinois Avenue. If you pass Go, collect $200
+    Advance to St. Charles Place. If you pass Go, collect $200
+    Advance to the nearest Railroad. If unowned, you may buy it from the Bank. If owned, pay wonder twice the rental to which they are otherwise entitled
+    Advance to the nearest Railroad. If unowned, you may buy it from the Bank. If owned, pay wonder twice the rental to which they are otherwise entitled
+    Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times amount thrown.
+    Bank pays you dividend of $50
+    Get Out of Jail Free
+    Go Back 3 Spaces
+    Go to Jail. Go directly to Jail, do not pass Go, do not collect $200
+    Make general repairs on all your property. For each house pay $25. For each hotel pay $100
+    Speeding fine $15
+    Take a trip to Reading Railroad. If you pass Go, collect $200
+    You have been elected Chairman of the Board. Pay each player $50
+    Your building loan matures. Collect $150 */
 }

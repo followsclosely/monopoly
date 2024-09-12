@@ -1,22 +1,27 @@
-package io.github.followsclosley.monopoly;
+package io.github.followsclosley.monopoly.ui;
 
+import io.github.followsclosley.monopoly.*;
 import io.github.followsclosley.monopoly.street.RealEstate;
 
-public class DummyAI implements ArtificialIntelligence {
+import javax.swing.*;
+
+public class Adapter implements ArtificialIntelligence {
 
     private Player player;
     private GameManager gameManager;
 
     @Override
     public void init(GameManager gameManager, Player player) {
-        System.out.println(player.getName() + ": init");
         this.gameManager = gameManager;
         this.player = player;
     }
 
     @Override
     public void beforeRoll(MutableGame game) {
-        //System.out.println(player.getName() + ": beforeRoll");
+        System.out.println("Jaron: YOUR ROLL DUMMY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        //JOptionPane.showMessageDialog(null, "Roll Dice?");
+
     }
 
     @Override

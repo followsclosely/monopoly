@@ -40,9 +40,10 @@ public abstract class RealEstate extends Street {
         return mortgage;
     }
 
-    public boolean isOwned(){
+    public boolean isOwned() {
         return currentOwner != null;
     }
+
     public boolean isMortgaged() {
         return mortgaged;
     }
